@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Área do Cliente</title>
+</head>
+<body>
+<head th:replace="~{base :: header}"></head>
+
+<div class="container">
+	<div class="row justify-content-center mt-5">
+		<div class="text-center mb-5 mt-5">
+			<h2>Olá Cliente!</h2>
+			<h6 class="text-dark">Painel Administrativo</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<div class="card text-center">
+				<div class="card-header mb-2 text-title font-weight-bold">Acesso
+					Rápido</div>
+				<div class="card-body">
+					<a href="#" class="card-link link-especial">Extrato</a> <a href="#"
+						class="card-link link-especial">Saldo</a> <a href="#"
+						class="card-link link-especial">Transações</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+	<div class="row justify-content-center mb-5">
+
+		<div class="card m-5" style="width: 18rem">
+			<div class="card-header mb-2 text-title font-weight-bold">
+				Dados Pessoais</div>
+			<div class="card-body">
+				<h6 class="card-subtitle mb-2 text-muted">Meus Dados</h6>
+				<p class="card-text">Atualize seus dados pessoais</p>
+				<a href="#" class="card-link link-especial">Atualizar</a>
+			</div>
+		</div>
+		<div class="card m-5" style="width: 18rem">
+			<div class="card-header mb-2 text-title font-weight-bold">
+				Endereços</div>
+			<div class="card-body">
+				<h6 class="card-subtitle mb-2 text-muted">Meu Endereço</h6>
+				<p class="card-text">Atualize seu endereço cadastrado</p>
+				<a href="#" class="card-link link-especial">Atualizar</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

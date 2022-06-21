@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Acesso Restrito</title>
+</head>
+<body>
+<head th:replace="~{base :: header}"></head>
+
+<div class="container mt-5 mb-5 py-5">
+	<div class="row">
+		<div class="col-2"></div>
+		<div class="col-8">
+			<div class="card mt-3">
+				<div class=card-header>
+					<h2 class="card-title">Cadastro de Clientes</h2>
+				</div>
+				<form class="card-body" action=method="POST">
+					<div class="form-row">
+					<div class="col-md-6 mb-3">
+						<label for="nome">Nome</label> <input type="text"
+							class="form-control" placeholder="Nome" /> <small>Informe
+							o nome completo do cliente.</small>
+						<div class="invalid-feedback">Erros do nome do cliente</div>
+						</div>
+						<div class="col-md-6 mb-3">
+								<label for="sobrenome">Sobrenome</label> <input class="form-control"
+									placeholder="Sobrenome" /> <small>Informe o sobrenome</small>
+								<div class="invalid-feedback">Erros no logradouro do
+									cliente</div>
+							</div>
+							
+						
+					</div>
+					<div class="form-group">
+						<label for="cpf">CPF</label> <input class="form-control"
+							placeholder="XXX.XXX.XXX-XX" /> <small>Entre com o CPF
+							do Cliente</small>
+						<div class="invalid-feedback">Erros no CPF do Cliente</div>
+					</div>
+					<div class="form-group">
+						<label for="cartao">Número do Cartão</label> <input type="text"
+							class="form-control" placeholder="4242 4242 4242 4242" /> <small>Informe
+							o número do Cartão do Cliente</small>
+						<div class="invalid-feedback">Erros no Cartão do Cliente</div>
+					</div>
+					<div class="form-group">
+						<label for="senha">Senha</label> <input type="password"
+							class="form-control" placeholder="***********" /> <small>Cadastre
+							uma senha para o cliente</small>
+						<div class="invalid-feedback">Erros na Senha do Cliente</div>
+					</div>
+					<!--
+					<div class="form-group">
+						<hr>
+						<label for="logradouro">Logradouro</label> <input
+							class="form-control" placeholder="Avenida Brasil" /> <small>Informe
+							a rua, avenida, logradouro do cliente</small>
+						<div class="invalid-feedback">Erros no logradouro do cliente</div>
+						<div class="form-row">
+							<div class="col-md-6 mb-3">
+								<label for="bairro">Bairro</label> <input class="form-control"
+									placeholder="Centro" /> <small>Informe o bairro da
+									localização</small>
+								<div class="invalid-feedback">Erros no bairro do cliente</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="cep">CEP</label> <input class="form-control"
+									placeholder="19360-000" /> <small>Informe o CEP</small>
+								<div class="invalid-feedback">Erros no CEP do cliente</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="cidade">Cidade</label> <input class="form-control"
+									placeholder="Santo Anastácio" /> <small>Informe a
+									cidade do Cliente</small>
+								<div class="invalid-feedback">Erros no logradouro do
+									cliente</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="estado">Estado</label> <input class="form-control"
+									placeholder="SP" /> <small>Informe o estado</small>
+								<div class="invalid-feedback">Erros no estado do cliente</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="pais">País</label> <input class="form-control"
+									placeholder="Brasil" /> <small>Informe o País</small>
+								<div class="invalid-feedback">Erros no país do cliente</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="telefone">Telefone</label> <input type="text"
+							class="form-control" placeholder="18 12345 6789" /> <small>Cadastre
+							o telefone de contato do Cliente</small>
+						<div class="invalid-feedback">Erros no telefone de contato
+							do Cliente</div>
+					</div>
+
+					 
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="logradouro">Data Nascimento</label> <input type="date"
+								class="form-control" placeholder="25/03/1999" /> <small>Informe
+								a data de Nascimento do Cliente</small>
+							<div class="invalid-feedback">Erros na data de nascimento.</div>
+						</div>
+
+					</div>
+
+
+				 -->
+
+
+					<button class="btn btn-block btn-outline-dark" type="submit">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-2"></div>
+	</div>
+</div>
+
+
+<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

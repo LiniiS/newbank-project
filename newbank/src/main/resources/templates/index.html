@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{base :: head}"></head>
+
+<!-- 
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>newbank</title>
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@500&family=Poppins:wght@500&display=swap"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="shortcut icon" type="image/x-icon" sizes="32x32"
+	href="./images/favicon.ico">
+</head>
+ -->
+<body>
+<head th:replace="~{base :: header}"></head>
+
+<!-- 
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<a class="navbar-brand fonte-brand" id="cor-titulo" href="#">newbank</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse  justify-content-end"
+				id="navbarNavAltMarkup">
+				<ul class="navbar-nav">
+					<li><a class="nav-link active" href="#">início <span
+							class="sr-only">(current)</span></a></li>
+					<li><a class="nav-link" href="#">transações</a></li>
+					<li><a class="nav-link" href="#">login</a></li>
+					<li><a class="nav-link" href="#">logout</a></li>
+					<li><a class="nav-link" data-toggle="modal"
+						data-target="#modal-contato" href="#">contato</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+-->
+<main>
+
+	<section class="carrossel carrossel-background">
+		<div id="carouselExampleCaptions" class="carousel slide"
+			data-interval="7000" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleCaptions" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="./images/carrossel-img1.png"
+						class="d-block w-100 imagem-carrossel" alt="...">
+					<div class="carousel-caption d-none d-md-block h-50">
+						<h1 class="fonte-titulo display-3">Realize transações
+							seguras!</h1>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="./images/carrossel-img2.png"
+						class="d-block w-100 imagem-carrossel" alt="...">
+					<div class="carousel-caption d-none d-md-block h-50">
+						<h1 class="fonte-titulo display-3">Realize transações
+							seguras!</h1>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleCaptions"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+	</section>
+
+	<section id="titulo">
+		<h1 class="text-center fonte-titulo cor-especial pt-5">Acesse sua
+			Conta</h1>
+
+		<div class="row  justify-content-center">
+			<a href="#" class="btn btn-lg botao-cor-especial">Entrar</a>
+		</div>
+		<p class="text-center text-secondary pt-3">Ainda não possui
+			uma conta? Fale conosco!</p>
+		<div class="row  justify-content-center">
+			<a href="/admin" class="text-center text-secondary pb-5">Entrar como Admin</a>
+		</div>
+	</section>
+
+	<section class="container-fluid bg-light mb-5" id="transacoes">
+		<div class="row  justify-content-center">
+
+			<article
+				class="card borda-cor-especial card-largura p-0 m-4 col-12 col-md-4">
+				<img src="./images/boleto-img.png"
+					alt="boletos bancários em cima da mesa com uma caneta esferografica preta por cima e uma calculadora, vista superior"
+					class="card-img-top card-imagem">
+				<div class="card-body">
+					<h5 class="card-title">Pagamento de boletos</h5>
+
+					<a href="#" class="btn botao-cor-especial">Realizar pagamentos</a>
+				</div>
+			</article>
+
+			<article
+				class="card borda-cor-especial card-largura p-0 m-4 col-12 col-md-4">
+				<img src="./images/deposito-img.png"
+					alt="pessoa inserindo uma moeda em um cofre em formato de porco, vista frontal"
+					class="card-img-top card-imagem">
+				<div class="card-body">
+					<h5 class="card-title">Transferência entre contas</h5>
+					<a href="#" class="btn botao-cor-especial">Efetuar
+						transferências</a>
+				</div>
+			</article>
+
+		</div>
+	</section>
+</main>
+
+<footer th:replace="~{base :: footer}"></footer>
+<!-- 
+	<footer class="bg-dark p-3">
+		<p class="text-light m-0 text-center fonte-brand">newbank</p>
+	</footer>
+
+	 -->
+
+<!-- Modal -->
+<div class="modal fade" id="modal-contato" tabindex="-1"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<dialog class="modal-content"> <header class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Entre em contato</h5>
+			<button type="button" class="close" data-dismiss="modal"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</header>
+		<main class="modal-body">
+
+			<form>
+
+				<div class="form-group">
+					<label for="nome">Nome</label> <input type="text"
+						class="form-control" id="nome" placeholder="Nome Sobrenome">
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email</label> <input type="email"
+						class="form-control" id="email" placeholder="nome@email.com">
+				</div>
+
+				<div class="form-group">
+					<label for="comentario">Deixe seu comentário</label>
+					<textarea class="form-control" id="comentario" rows="3"></textarea>
+				</div>
+			</form>
+		</main>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn botao-cor-especial">Enviar</button>
+		</div>
+		</dialog>
+	</div>
+</div>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+	integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+	crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

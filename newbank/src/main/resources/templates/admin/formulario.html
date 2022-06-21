@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Acesso Restrito</title>
+</head>
+<body>
+	<header th:replace="~{base :: header}"></header>
+
+	<div class="container mt-5 mb-5 py-5">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<div class="card mt-3">
+					<div class=card-header>
+						<h2 class="card-title">Cadastro de Clientes</h2>
+					</div>
+					<form id="client-form" th:object="${clientDto}" class="card-body" th:action="@{/admin/cliente}" method="POST">
+
+						<div class="form-row">
+							<div class="col-md-6 mb-3">
+								<label for="nome">Nome</label> <input th:field="*{firstName}" th:errorclass="is-invalid" type="text"
+									class="form-control" placeholder="Antonio Eduardo" /> <small>Informe
+									o nome do cliente.</small>
+								<div th:errors="*{firstName}" class="invalid-feedback">Erros do nome do cliente</div>
+							</div>
+
+							<div class="col-md-6 mb-3">
+								<label for="sobrenome">Sobrenome</label> <input th:field="*{lastName}" th:errorclass="is-invalid" type="text"
+									class="form-control" placeholder="Medeiros" /> <small>Informe
+									o sobrenome cliente.</small>
+								<div th:errors="*{lastName}" class="invalid-feedback">Erros no sobrenome</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="col-md-6 mb-3">
+								<label for="cpf">CPF</label> <input th:field="*{cpf}" th:errorclass="is-invalid" class="form-control"
+									placeholder="XXX.XXX.XXX-XX" /> <small>Entre com o CPF
+									do Cliente</small>
+								<div th:errors="*{cpf}" class="invalid-feedback">Erros no CPF do Cliente</div>
+							</div>
+
+
+							<div class="col-md-6 mb-3">
+								<label for="conta">Número da Conta</label> <input th:field="*{accountId}" th:errorclass="is-invalid" type="text"
+									class="form-control" placeholder="142578" /> <small>Informe
+									a conta do Cliente</small>
+								<div th:errors="*{accountId}" class="invalid-feedback">Erros no número da Conta</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="col-md-6 mb-3">
+								<label for="cartao">Número do Cartão</label> <input th:field="*{card}" th:errorclass="is-invalid" type="text"
+									class="form-control" placeholder="4242 4242 4242 4242" /> <small>Informe
+									o número do Cartão do Cliente</small>
+								<div th:errors="*{card}" class="invalid-feedback">Erros no Cartão do Cliente</div>
+							</div>
+
+
+							<div class="col-md-6 mb-3">
+								<label for="senha">Senha</label> <input th:field="*{password}" th:errorclass="is-invalid" type="password"
+									class="form-control" placeholder="***********" /> <small>Cadastre
+									uma senha para o cliente</small>
+								<div th:errors="*{password}" class="invalid-feedback">Erros na Senha do Cliente</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<hr>
+							<label for="logradouro">Logradouro</label> <input th:field="*{street}" th:errorclass="is-invalid" 
+								class="form-control" placeholder="Avenida Brasil" /> <small>Informe
+								a rua, avenida, logradouro do cliente</small>
+							<div th:errors="*{street}" class="invalid-feedback">Erros no logradouro do
+								cliente</div>
+							<div class="form-row">
+								<div class="col-md-6 mb-3">
+									<label for="bairro">Bairro</label> <input th:field="*{district}" th:errorclass="is-invalid" class="form-control"
+										placeholder="Centro" /> <small>Informe o bairro da
+										localização</small>
+									<div th:errors="*{district}" class="invalid-feedback">Erros no bairro do cliente</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="cep">CEP</label> <input th:field="*{zipCode}" th:errorclass="is-invalid" class="form-control"
+										placeholder="19360-000" /> <small>Informe o CEP</small>
+									<div th:errors="*{zipCode}" class="invalid-feedback">Erros no CEP do cliente</div>
+								</div>
+							</div>
+
+							<div class="form-row">
+								<div class="col-md-4 mb-3">
+									<label for="cidade">Cidade</label> <input th:field="*{city}" th:errorclass="is-invalid" class="form-control"
+										placeholder="Santo Anastácio" /> <small>Informe a
+										cidade do Cliente</small>
+									<div th:errors="*{city}" class="invalid-feedback">Erros no logradouro do
+										cliente</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="estado">Estado</label> <input th:field="*{state}" th:errorclass="is-invalid" class="form-control"
+										placeholder="SP" /> <small>Informe o estado</small>
+									<div th:errors="*{state}" class="invalid-feedback">Erros no estado do cliente</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="pais">País</label> <input th:field="*{country}" th:errorclass="is-invalid" class="form-control"
+										placeholder="Brasil" /> <small>Informe o País</small>
+									<div th:errors="*{country}" class="invalid-feedback">Erros no país do cliente</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<label for="telefone">Telefone</label> <input th:field="*{phone}" th:errorclass="is-invalid" type="text"
+								class="form-control" placeholder="18 12345 6789" /> <small>Contato do Cliente</small>
+							<div th:errors="*{phone}" class="invalid-feedback">Erros no telefone de contato
+								do Cliente</div>
+						</div>
+						</div>
+						<!-- 
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="logradouro">Data Nascimento</label> <input type="date"
+								class="form-control" placeholder="25/03/1999" /> <small>Informe
+								a data de Nascimento do Cliente</small>
+							<div class="invalid-feedback">Erros na data de nascimento.</div>
+						</div>
+
+					</div>
+
+
+				 -->
+						<button class="btn btn-block  botao-cor-especial" type="submit">Cadastrar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
+
+
+	<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

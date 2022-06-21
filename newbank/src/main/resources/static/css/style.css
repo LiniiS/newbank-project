@@ -1,0 +1,79 @@
+.card-largura {
+	max-width: 18rem;
+}
+
+.carrossel-background {
+	background: black;
+	overflow: hidden;
+}
+
+.imagem-carrossel {
+	object-fit: cover;
+	object-position: 0 75%;
+	height: 600px;
+	opacity: 0.2;
+}
+
+.fonte-brand {
+	font-family: 'Lexend Giga', sans-serif;
+	font-size: 1.2em;
+}
+
+.fonte-titulo {
+	font-family: 'Poppins', sans-serif;
+	text-shadow: 1px 1px 2px #052a69;
+}
+
+#cor-titulo {
+	color: #00050d;
+}
+
+.cor-especial {
+	color: #052a69;
+}
+
+.botao-cor-especial {
+	background-color: #052a69;
+	color: white;
+}
+
+.botao-cor-especial:hover {
+	background-color: #00050d;
+	color: white;
+}
+
+.borda-cor-especial {
+	border-color: #052a69;
+}
+
+.card-imagem {
+	object-fit: cover;
+	height: 200px;
+}
+
+.cor-background-footer {
+	color: #052a69;
+}
+
+.footer-especial {
+	bottom: 0;
+	background-color: #00050d;
+
+}
+
+.link-especial{
+	color: #052a69;
+	
+}
+
+
+.link-especial:hover{
+	color: #00050d;
+	font-weight: bold;	
+	text-transform: uppercase;
+	
+}
+/*
+#00050d
+#052a69
+*/

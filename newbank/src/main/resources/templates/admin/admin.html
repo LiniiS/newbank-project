@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Acesso Restrito</title>
+</head>
+<body>
+<header th:replace="~{base :: header}"></header>
+
+<section class="container-fluid bg-white" id="login-admin">
+
+	<div class="row mt-5 py-5 justify-content-center">
+
+		<form class="mt-5 card p-3" action="/admin/home">
+		<div class="card-header bg-white">
+			<p class="card-title text-dark font-weight-bold">Acesso Restrito - Área do Administrador</p>
+		</div>
+			<div class="form-group">
+				<label for="admin">Login</label> <input
+					type="email" class="form-control" id="admin"
+					aria-describedby="adminHelp"> <small id="adminHelp"
+					class="form-text text-muted">Utilize código secreto</small>
+			</div>
+			<div class="form-group">
+				<label for="senha">Senha</label> <input
+					type="password" class="form-control" id="senha">
+			</div>
+			<button type="submit" class="btn botao-cor-especial">Entrar</button>
+		</form>
+	
+	</div>
+</section>
+
+<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

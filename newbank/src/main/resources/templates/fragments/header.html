@@ -1,0 +1,22 @@
+<header th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand fonte-brand" id="cor-titulo" href="#">newbank</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse  justify-content-end"
+			id="navbarNavAltMarkup">
+			<ul class="navbar-nav">
+				<li><a class="nav-link active" href="/home">início <span
+						class="sr-only">(current)</span></a></li>
+				<li><a class="nav-link" href="/home">transações</a></li>
+				<li><a class="nav-link" href="/login">login</a></li>
+				<li><a class="nav-link" href="#">logout</a></li>
+				<li><a class="nav-link" data-toggle="modal"
+					data-target="#modal-contato" href="#">contato</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
