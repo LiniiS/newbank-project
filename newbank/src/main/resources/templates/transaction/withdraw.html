@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Saques</title>
+</head>
+<body>
+	<header th:replace="~{base :: header}"></header>
+
+	<div class="container">
+		<div class="row justify-content-center mt-5">
+			<div class="text-center mb-5 mt-5">
+				<h2>Saques</h2>
+				<h6 class="text-dark">Realize transações seguras</h6>
+			</div>
+		</div>
+
+		<div class="justify-content-center mb-5">
+			<div class="card">
+				<!-- formulario pra sacar -->
+				<form class="form-inline">
+					<label class="sr-only" for="quantia">Quantia a Sacar</label>
+					<div class="input-group mb-2 mr-sm-2">
+						<div class="input-group-prepend">
+							<div class="input-group-text">R$</div>
+						</div>
+						<input type="number" class="form-control" id="quantia">
+					</div>
+					<button type="submit" class="btn botao-cor-especial mb-2">Sacar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer :: footer" />
+</body>
+</html>

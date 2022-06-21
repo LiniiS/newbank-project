@@ -29,12 +29,15 @@ public class Transaction {
 
 	private String transactionType; // saque ou deposito (enum?)
 
+	private double amount;
+
 	public Transaction() {
 	}
 
-	public Transaction(Account account, String transactionType) {
+	public Transaction(Account account, String transactionType, double amount) {
 		this.account = account;
 		this.transactionType = transactionType;
+		this.amount = amount;
 	}
 
 	public Long getId() {
@@ -93,6 +96,14 @@ public class Transaction {
 
 	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 }
