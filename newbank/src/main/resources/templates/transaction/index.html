@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Acesso Restrito</title>
+</head>
+<body>
+	<header th:replace="~{base :: header}"></header>
+	<div class="container">
+		<div class="jumbotron m-5 p-5">
+			<div class="container">
+				<h1 class="display-4">Transações Disponíveis</h1>
+				<hr class="my-4">
+				<p class="lead">Realize transações seguras.</p>
+			</div>
+			<div class="card-group">
+				<div class="card m-2 text-center">
+					<div class="card-header"></div>
+					<div class="card-body">
+						<h5 class="card-title">Depósitos</h5>
+						<p class="card-text">Realize depósitos sem a necessidade de
+							entrar em sua conta</p>
+						<a href="/transaction/deposit" class="btn botao-cor-especial">Depositar</a>
+					</div>
+					<div class="card-footer text-muted">Dúvidas? Fale conosco!</div>
+				</div>
+				<div class="card m-2 text-center">
+					<div class="card-header"></div>
+					<div class="card-body">
+						<h5 class="card-title">Saques</h5>
+						<p class="card-text">Acesse sua conta para efetuar saques.</p>
+						<a href="/login" class="btn botao-cor-especial">Acessar conta</a>
+					</div>
+					<div class="card-footer text-muted">Ainda não é cliente? Fale
+						conosco!</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer :: footer" />
+</body>
+</html>

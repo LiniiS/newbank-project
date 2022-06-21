@@ -8,8 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value="/cliente")
 public class ClientResource {
 
-	@GetMapping(value="/")
+	@GetMapping(value="/home")
 	public String showClientHomePage() {
 		return "cliente";
 	}
+	
+	@GetMapping(value="/")
+	public String showLoginPage() {
+		return "login";
+	}
+	
+	
 }

@@ -1,9 +1,13 @@
 package com.asantos.newbank.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,6 +29,9 @@ public class Account {
 
 	@OneToOne(mappedBy = "account")
 	private Client client;
+	
+	@OneToMany(mappedBy="account")
+	private Set<Transaction> transactions = new HashSet<>();
 
 	public Account() {
 	}
@@ -108,6 +115,14 @@ public class Account {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public Set<Transaction> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(Set<Transaction> transactions) {
+		this.transactions = transactions;
 	}
 
 }
