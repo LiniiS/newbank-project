@@ -12,52 +12,46 @@ public class ClientDto {
 	private Long id;
 
 	// basic personal data
-	@NotBlank
+	@NotBlank(message="Nome do cliente é obrigatório.")
 	private String firstName;
 
-	@NotBlank
+	@NotBlank(message="Sobrenome do cliente é obrigatório.")
 	private String lastName;
 
-	@CPF
+	@CPF(message="Número de CPF inválido.")
 	private String cpf;
 
-	@NotBlank
+	@NotBlank(message="Número de telefone é obrigatório.")
 	private String phone;
 
 	// address data
-	@NotBlank
+	@NotBlank(message="Endereço do cliente é obrigatório.")
 	private String street;
 
-	@NotBlank
+	@NotBlank(message="Bairro do cliente é obrigatório.")
 	private String district;
 
-	@NotBlank
+	@NotBlank(message="Cidade do cliente é obrigatório.")
 	private String city;
 
-	@NotBlank
+	@NotBlank(message="Estado do cliente é obrigatório.")
 	private String state;
 
-	@NotBlank
+	@NotBlank(message="País do cliente é obrigatório.")
 	private String country;
 
-	@NotBlank
+	@NotBlank(message="CEP do cliente é obrigatório.")
 	private String zipCode;
 
-	// card data
-	@NotNull
-	private long card;
 
-	@NotBlank
-	private String password;
-
-	@NotNull
-	private Long accountId;
+	@NotBlank(message="Atribua o número da conta do cliente.")
+	private String account;
 
 	public ClientDto() {
 	}
 
 	public ClientDto(Long id, String firstName, String lastName, String cpf, String phone, String street,
-			String district, String city, String state, String country, String zipCode, long card, String password, Long accountId) {
+			String district, String city, String state, String country, String zipCode, String account) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -69,9 +63,7 @@ public class ClientDto {
 		this.state = state;
 		this.country = country;
 		this.zipCode = zipCode;
-		this.card = card;
-		this.password = password;
-		this.accountId = accountId;
+		this.account = account;
 
 	}
 
@@ -87,9 +79,7 @@ public class ClientDto {
 		this.state = client.getState();
 		this.country = client.getCountry();
 		this.zipCode = client.getZipCode();
-		this.card = client.getCard();
-		this.password = client.getPassword();
-		this.accountId = client.getAccount().getId();
+		this.account = client.getAccount().getAccount();
 	}
 
 	public Long getId() {
@@ -180,28 +170,13 @@ public class ClientDto {
 		this.zipCode = zipCode;
 	}
 
-	public long getCard() {
-		return card;
+
+	public String getAccount() {
+		return account;
 	}
 
-	public void setCard(long card) {
-		this.card = card;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Long getAccountId() {
-		return accountId;
-	}
-
-	public void setAccountId(Long accountId) {
-		this.accountId = accountId;
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
 }

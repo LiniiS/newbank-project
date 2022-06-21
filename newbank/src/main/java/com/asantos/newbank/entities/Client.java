@@ -31,9 +31,6 @@ public class Client {
 	private String country;
 	private String zipCode;
 
-	//card data
-	private long card;
-	private String password;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="account_id")
@@ -43,7 +40,7 @@ public class Client {
 	}
 
 	public Client(String firstName, String lastName, String cpf, String phone, String street, String district,
-			String city, String state, String country, String zipCode, long card, String password, Account account) {
+			String city, String state, String country, String zipCode, Account account) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.cpf = cpf;
@@ -54,8 +51,7 @@ public class Client {
 		this.state = state;
 		this.country = country;
 		this.zipCode = zipCode;
-		this.card = card;
-		this.password = password;
+
 		this.account = account;
 	}
 
@@ -151,21 +147,6 @@ public class Client {
 		this.zipCode = zipCode;
 	}
 
-	public long getCard() {
-		return card;
-	}
-
-	public void setCard(long card) {
-		this.card = card;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public Account getAccount() {
 		return account;

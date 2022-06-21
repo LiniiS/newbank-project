@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Acesso Restrito</title>
+</head>
+<body>
+	<header th:replace="~{base :: header}"></header>
+
+	<div class="container mt-5 mb-5 py-5">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<div class="card mt-3">
+					<div class=card-header>
+						<h2 class="card-title">Cadastro de Contas Bancárias</h2>
+					</div>
+					<form id="client-form" th:object="${accountDto}" class="card-body" th:action="@{/admin/conta}" method="POST">
+
+						<div class="form-row">
+							<div class="col-md-6 mb-3">
+								<label for="conta">Número da Conta</label> <input th:field="*{account}" th:errorclass="is-invalid" type="text"
+									class="form-control" placeholder="14225478" /> <small>Informe o número da Conta.</small>
+								<div th:errors="*{account}" class="invalid-feedback">Erros no número da conta</div>
+							</div>
+
+							<div class="col-md-6 mb-3">
+								<label for="saldo">Saldo inicial</label> <input th:field="*{balance}" th:errorclass="is-invalid" type="number"
+									class="form-control"  /> <small>Informe
+									o valor do saldo inicial.</small>
+								<div th:errors="*{balance}" class="invalid-feedback">Erros no valor do Saldo</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="col-md-6 mb-3">
+								<label for="cliente">Identificação do Cliente</label> <input th:field="*{clientId}" th:errorclass="is-invalid" class="form-control"
+									placeholder="1" /> <small>Informe o código do cliente associado se existir.</small>
+								<div th:errors="*{clientId}" class="invalid-feedback">Erros no código do Cliente</div>
+							</div>
+						</div>
+						 
+						<div class="form-row">
+							<div class="col-md-6 mb-3">
+								<label for="cartao">Número do Cartão</label> <input th:field="*{cardNumber}" th:errorclass="is-invalid" type="text"
+									class="form-control" placeholder="4242 4242 4242 4242" /> <small>Informe
+									o número do Cartão do Cliente</small>
+								<div th:errors="*{cardNumber}" class="invalid-feedback">Erros no Cartão do Cliente</div>
+							</div>
+
+
+							<div class="col-md-6 mb-3">
+								<label for="senha">Senha</label> <input th:field="*{password}" th:errorclass="is-invalid" type="password"
+									class="form-control" placeholder="***********" /> <small>Cadastre
+									uma senha para o cliente</small>
+								<div th:errors="*{password}" class="invalid-feedback">Erros na Senha do Cliente</div>
+							</div>
+						</div>
+						 
+							
+						<button class="btn btn-block  botao-cor-especial" type="submit">Cadastrar</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
+
+
+	<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

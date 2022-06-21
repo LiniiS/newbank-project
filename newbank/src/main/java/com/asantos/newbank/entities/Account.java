@@ -14,17 +14,35 @@ public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	private String account;
+
 	private double balance;
 
-	@OneToOne(mappedBy="account")
+	private String cardNumber;
+
+	private String password;
+
+	@OneToOne(mappedBy = "account")
 	private Client client;
 
 	public Account() {
 	}
 
-	public Account(double balance, Client client) {
+	public Account(String account, double balance, String cardNumber, String password, Client client) {
+		this.account = account;
 		this.balance = balance;
+		this.cardNumber = cardNumber;
+		this.password = password;
 		this.client = client;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
 	public Long getId() {
@@ -41,6 +59,22 @@ public class Account {
 
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Client getClient() {

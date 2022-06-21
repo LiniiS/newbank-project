@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.asantos.newbank.dto.ClientDto;
-import com.asantos.newbank.entities.Account;
 import com.asantos.newbank.entities.Client;
+import com.asantos.newbank.repositories.AccountRepository;
 import com.asantos.newbank.repositories.ClientRepository;
 
 @Service
@@ -17,6 +17,10 @@ public class ClientService {
 	
 	@Autowired
 	private ClientRepository clientRepository;
+	
+	@Autowired
+	private AccountRepository accountRepository;
+	
 	
 	@Transactional(readOnly=true)
 	public List<ClientDto> findAll(){
@@ -29,7 +33,10 @@ public class ClientService {
 		Client newClient = new Client();
 		getEntityFromDto(clientDto, newClient);
 		
-		newClient.setAccount(new Account(clientDto.getAccountId(), null));
+		//Account clientAccount = accountRepository.findByAccount(clientDto.getAccount());
+		//antes de setar, buscar no DB o número da conta do cliente
+		
+		
 		newClient = clientRepository.save(newClient);
 		
 		return new ClientDto(newClient);
@@ -48,8 +55,7 @@ public class ClientService {
 		newClient.setCountry(clientDto.getCountry());
 		newClient.setZipCode(clientDto.getZipCode());
 		newClient.setPhone(clientDto.getPhone());
-		newClient.setCard(clientDto.getCard());
-		newClient.setPassword(clientDto.getPassword());
+		newClient.setAccount(accountRepository.findByAccount(clientDto.getAccount()));
 		
 	}
 
