@@ -1,5 +1,6 @@
 package com.asantos.newbank.dto;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.asantos.newbank.entities.Transaction;
@@ -8,34 +9,31 @@ public class TransactionDto {
 
 	private Long id;
 
-	@NotNull(message = "Campo 'conta' é obrigatório.")
+	@NotBlank(message = "Campo 'conta favorecida' é obrigatório.")
 	private String account;
 
 	private String transactionType;
 
 	@NotNull(message = "Campo 'valor' é obrigatório.")
-	private double ammount;
+	private double amount;
 
-	public TransactionDto(@NotNull(message = "Campo 'conta' é obrigatório.") String account, String transactionType,
+	public TransactionDto() {}
+	
+	public TransactionDto(@NotBlank(message = "Campo 'conta' é obrigatório.") String account, String transactionType,
 			@NotNull(message = "Campo 'valor' é obrigatório.") double amount) {
 		this.account = account;
 		this.transactionType = transactionType;
-		this.ammount = amount;
+		this.amount = amount;
 	}
 
 	public TransactionDto(Transaction transaction) {
 		this.id = transaction.getId();
 		this.account = transaction.getAccount().getAccount();
 		this.transactionType = transaction.getTransactionType();
-		this.ammount = transaction.getAmount();
+		this.amount = transaction.getAmount();
 
 	}
 
-	// construtor pra saque e depósito, só constroi diferente o tipo da transação
-	public TransactionDto(String account, double ammount) {
-		this.account = account;
-		this.ammount = ammount;
-	}
 
 	public Long getId() {
 		return id;
@@ -62,11 +60,11 @@ public class TransactionDto {
 	}
 
 	public double getAmount() {
-		return ammount;
+		return amount;
 	}
 
 	public void setAmount(double amount) {
-		this.ammount = amount;
+		this.amount = amount;
 	}
 
 }

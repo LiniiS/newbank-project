@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<title>Acesso Restrito</title>
+</head>
+<body>
+	<header th:replace="~{base :: header}"></header>
+
+	<div class="container">
+		<div class="row justify-content-center mt-5">
+			<div class="text-center mb-5 mt-5">
+				<h2>Depósitos</h2>
+				<h5 class="text-dark">Realize transações seguras</h5>
+
+			</div>
+		</div>
+		<!-- formulario pra depositar -->
+		<form id="deposit-form" th:object="${transactionDto}" th:action="@{/transacao/deposito}" method="POST">
+			<h6 class="text-dark text-center">Informe a conta favorecida e a quantia a
+				ser depositada</h6>
+			<div class="row justify-content-center mb-5">
+				<div class="col-3">
+					<label class="sr-only" for="conta">Favorecido</label> <input th:field="*{account}" th:errorclass="is-invalid"
+						type="text" class="form-control mb-2 mr-sm-3"
+						id="conta-fovorecida" placeholder="Conta favorecida"><div th:errors="*{account}" class="invalid-feedback mb-2" >Erros na quantia a ser depositada.</div><label
+						class="sr-only" for="quantia">Quantia</label>
+					<div class="input-group mb-2 mr-sm-3">
+						<div class="input-group-prepend">
+							<div class="input-group-text">R$</div>
+						</div>
+						<input th:field="*{amount}" th:errorclass="is-invalid" type="number" class="form-control" id="quantia"
+							placeholder="Quantia"><div th:errors="*{amount}" class="invalid-feedback mb-2" >Erros na quantia a ser depositada.</div>
+					</div>
+					<!--  
+					<label class="sr-only" for="conta">Depositante</label> <input
+						type="text" class="form-control mb-2 mr-sm-3"
+						id="conta-depositante" placeholder="Conta depositante"> <label
+						class="sr-only" for="conta-depositante">Depositante</label>
+					-->
+					<button type="submit" class="btn botao-cor-especial mb-2">Depositar</button>
+
+				</div>
+
+
+
+			</div>
+
+		</form>
+
+
+
+
+
+	</div>
+	</div>
+
+	<div th:replace="fragments/footer :: footer" />
+</body>
+</html>

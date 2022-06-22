@@ -1,15 +1,20 @@
 package com.asantos.newbank.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.asantos.newbank.dto.AccountDto;
+import com.asantos.newbank.dto.TransactionDto;
 import com.asantos.newbank.entities.Account;
 import com.asantos.newbank.repositories.AccountRepository;
+import com.asantos.newbank.services.exceptions.AccountDoesNotExistException;
 
 @Service
 public class AccountService {
@@ -38,6 +43,16 @@ public class AccountService {
 		newAccount.setCardNumber(accountDto.getCardNumber());
 		newAccount.setPassword(accountDto.getPassword());
 
+	}
+
+	public boolean checkAccount(@Valid TransactionDto transactionDepositDto) {
+
+		Optional<Account> optionalAccount = Optional
+				.of(accountRepository.findByAccount(transactionDepositDto.getAccount()));
+		if (!optionalAccount.isPresent()) {
+			throw new AccountDoesNotExistException("Conta informada não existe: " + optionalAccount);
+		}
+		return true;
 	}
 
 }
