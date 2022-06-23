@@ -15,23 +15,37 @@
 			</div>
 		</div>
 
-		<div class="justify-content-center mb-5">
-			<div class="card">
+		<div class="row justify-content-center mb-5">
+			<div class="card col-3">
 				<!-- formulario pra sacar -->
-				<form class="form-inline">
+				<div class="form-inline m-2 py-4">
+					<div class="input-group input-group-sm">
+						<div class="input-group-prepend">
+							<div class="input-group-text">Saldo</div>
+						</div>
+						<input type="number" class="form-control" id="saldo" disabled>
+					</div>
+				</div>
+
+				<form id="formulario-saque" class="form-inline m-2"
+					th:object="${transactionDto}" th:action="@{/transacao/saque}"
+					method="POST">
 					<label class="sr-only" for="quantia">Quantia a Sacar</label>
-					<div class="input-group mb-2 mr-sm-2">
+					<div class="input-group mb-2">
 						<div class="input-group-prepend">
 							<div class="input-group-text">R$</div>
 						</div>
-						<input type="number" class="form-control" id="quantia">
+						<input type="number" class="form-control" id="quantia"
+							th:field="*{amount}" th:errorclass="is-invalid">
+						<div th:errors="*{amount}" class="invalid-feedback mb-2">Erros
+							na quantia a ser sacada.</div>
 					</div>
-					<button type="submit" class="btn botao-cor-especial mb-2">Sacar</button>
+					<button type="submit" class="btn btn-block botao-cor-especial mb-2">Sacar</button>
 				</form>
 			</div>
 		</div>
 	</div>
 
-	<div th:replace="fragments/footer :: footer" />
+	<div th:replace="fragments/footer :: footer" /></div>
 </body>
 </html>

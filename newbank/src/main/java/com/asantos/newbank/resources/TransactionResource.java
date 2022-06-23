@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.asantos.newbank.dto.AccountDto;
 import com.asantos.newbank.dto.TransactionDto;
+import com.asantos.newbank.dto.TransactionTransferDto;
 import com.asantos.newbank.services.AccountService;
 import com.asantos.newbank.services.TransactionService;
 
 @Controller
 @RequestMapping("/transacao")
-public class TransactionResourse {
+public class TransactionResource {
 
 	@Autowired
 	private TransactionService transactionService;
@@ -43,16 +45,43 @@ public class TransactionResourse {
 		if (result.hasErrors()) {
 			return "/transaction/formularioDeposito";
 		}
-				
-		//TODO verificar se a conta digitada existe e interceptar o erro		
+
+		// TODO verificar se a conta digitada existe e interceptar o erro
 
 		transactionService.deposit(transactionDepositDto);
 
 		return "redirect:/transacao";
 	}
 
-	// requsicao pra ver as transacoes (precisa ser cliente logado pra ver)
-
 	// requisicao pra sacar (precisa ser cliente logado pra sacar)
+	@GetMapping(value = "saque")
+	public String showWithdrawForm(TransactionDto transactionWithdrawDto) {
+		return "/transaction/formularioSaque";
+	}
+
+	@PostMapping(value = "saque")
+	public String insertNewWithdraw(@Valid TransactionDto transactionWithdrawDto, BindingResult result) {
+		if (result.hasErrors()) {
+			return "/transaction/formularioSaque";
+		}
+		
+		//TODO buscar a conta do usuário logado passar pro dto
+		
+		transactionService.withdraw(transactionWithdrawDto);
+
+		return "redirect:/transacao";
+	}
+
+	//transferência entre contas: um saque da conta logada e um depósito para a conta digitada
+	@PostMapping(value="transferencia")
+	public String insertNewTransfer(TransactionTransferDto transferDto, AccountDto accountDto) {
+		//buscar a conta que está logada
+		
+		transactionService.transfer(transferDto, accountDto);
+		
+		return "/transaction/formularioTransferencia";
+		
+	}
+	
 
 }

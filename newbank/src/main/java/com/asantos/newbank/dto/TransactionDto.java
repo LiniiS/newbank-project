@@ -2,6 +2,7 @@ package com.asantos.newbank.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import com.asantos.newbank.entities.Transaction;
 
@@ -15,6 +16,7 @@ public class TransactionDto {
 	private String transactionType;
 
 	@NotNull(message = "Campo 'valor' é obrigatório.")
+	@Positive(message = "Valor inserido inválido.")
 	private double amount;
 
 	public TransactionDto() {}

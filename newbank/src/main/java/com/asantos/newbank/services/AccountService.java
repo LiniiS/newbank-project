@@ -55,4 +55,10 @@ public class AccountService {
 		return true;
 	}
 
+	public Double getBalance(AccountDto accountDto) {
+		Double currentBalance = accountDto.getBalance();		
+		return currentBalance;
+				
+	}
+
 }
