@@ -39,6 +39,7 @@ public class TransactionService {
 		return new TransactionDto(newTransaction);
 	}
 
+	@Transactional
 	public TransactionDto withdraw(@Valid TransactionDto withdrawDto) {
 		Transaction newTransaction = new Transaction();
 
@@ -57,17 +58,29 @@ public class TransactionService {
 		return new TransactionDto(newTransaction);
 	}
 
+	@Transactional
 	public TransactionTransferDto transfer(TransactionTransferDto transferDto, AccountDto accountDto) {
-		Account account = accountRepository.findByAccount(accountDto.getAccount());
-		// verificar se o saldo na conta é o suficiente pra transferir
-
-		// se for suficiente pegar a conta de destino e depositar
+		//pegar a conta de quem está logado
+		Account originAccount = accountRepository.findByAccount(accountDto.getAccount());
+		
+		//pegar a conta digitada no form
 		Account destinationAccount = accountRepository.findByAccount(transferDto.getDestinationAccount());
+
+		// verificar se o saldo na conta é o suficiente pra transferir	
+		// se for suficiente pegar a conta de destino e depositar
 		Transaction transferTransaction = new Transaction();
 		getEntityFromDto(transferDto, transferTransaction);
 
+		if(originAccount.getBalance() > transferTransaction.getAmount()) {
+			originAccount.setBalance(originAccount.getBalance() - transferTransaction.getAmount());
+			destinationAccount.setBalance(destinationAccount.getBalance() + transferTransaction.getAmount());
+			accountRepository.save(originAccount);
+			accountRepository.save(destinationAccount);
+		}
+		
+		
 		// retornar a conta de quem está logado
-		return new TransactionTransferDto(transferTransaction, destinationAccount);
+		return new TransactionTransferDto(transferTransaction, originAccount);
 
 	}
 
@@ -76,7 +89,8 @@ public class TransactionService {
 		transferTransaction.setId(transferDto.getId());
 		transferTransaction.setAmount(transferDto.getTransferredAmount());
 		transferTransaction.setAccount(accountRepository.findByAccount(transferDto.getDestinationAccount()));
-
+		transferTransaction.setTransactionType(transferTransaction.getTransactionType());
+		
 	}
 
 	// para depósitos
