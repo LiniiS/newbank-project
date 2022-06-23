@@ -39,26 +39,18 @@ public class TransactionService {
 		return new TransactionDto(newTransaction);
 	}
 
-	private void getEntityFromDto(TransactionDto transactionDto, Transaction newTransaction) {
-		newTransaction.setId(transactionDto.getId());
-		newTransaction.setAccount(accountRepository.findByAccount(transactionDto.getAccount()));
-		newTransaction.setAmount(transactionDto.getAmount());
-		newTransaction.setTransactionType(transactionDto.getTransactionType());
-
-	}
-
 	public TransactionDto withdraw(@Valid TransactionDto withdrawDto) {
 		Transaction newTransaction = new Transaction();
-		
+
 		getEntityFromDto(withdrawDto, newTransaction);
 		newTransaction.setTransactionType("Saque");
 		newTransaction = transactionRepository.save(newTransaction);
-		
+
 		@SuppressWarnings("deprecation")
 		Account account = accountRepository.getById(newTransaction.getAccount().getId());
-		
-		//if balance < amount
-		if(!(account.getBalance() > newTransaction.getAmount())) {
+
+		// if balance < amount
+		if (!(account.getBalance() > newTransaction.getAmount())) {
 			throw new AccountBalanceException("Saldo insuficiente");
 		}
 		account.setBalance(account.getBalance() - newTransaction.getAmount());
@@ -66,11 +58,34 @@ public class TransactionService {
 	}
 
 	public TransactionTransferDto transfer(TransactionTransferDto transferDto, AccountDto accountDto) {
-		
-		
-		return transferDto;
-		
-		
+		Account account = accountRepository.findByAccount(accountDto.getAccount());
+		// verificar se o saldo na conta é o suficiente pra transferir
+
+		// se for suficiente pegar a conta de destino e depositar
+		Account destinationAccount = accountRepository.findByAccount(transferDto.getDestinationAccount());
+		Transaction transferTransaction = new Transaction();
+		getEntityFromDto(transferDto, transferTransaction);
+
+		// retornar a conta de quem está logado
+		return new TransactionTransferDto(transferTransaction, destinationAccount);
+
+	}
+
+	// para transfers
+	private void getEntityFromDto(TransactionTransferDto transferDto, Transaction transferTransaction) {
+		transferTransaction.setId(transferDto.getId());
+		transferTransaction.setAmount(transferDto.getTransferredAmount());
+		transferTransaction.setAccount(accountRepository.findByAccount(transferDto.getDestinationAccount()));
+
+	}
+
+	// para depósitos
+	private void getEntityFromDto(TransactionDto transactionDto, Transaction newTransaction) {
+		newTransaction.setId(transactionDto.getId());
+		newTransaction.setAccount(accountRepository.findByAccount(transactionDto.getAccount()));
+		newTransaction.setAmount(transactionDto.getAmount());
+		newTransaction.setTransactionType(transactionDto.getTransactionType());
+
 	}
 
 }

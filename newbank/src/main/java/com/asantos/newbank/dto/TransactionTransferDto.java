@@ -37,7 +37,7 @@ public class TransactionTransferDto {
 		this.id = transaction.getId();
 		this.destinationAccount = transaction.getAccount().getAccount();
 		this.transferredAmount = transaction.getAmount();
-		this.destinationAccount = account.getAccount();
+		this.originAccount = account.getAccount();
 
 	}
 
