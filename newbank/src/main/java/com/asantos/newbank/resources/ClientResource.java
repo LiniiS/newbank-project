@@ -10,7 +10,7 @@ public class ClientResource {
 
 	@GetMapping(value="/home")
 	public String showClientHomePage() {
-		return "cliente";
+		return "/cliente/cliente";
 	}
 	
 	@GetMapping(value="/")

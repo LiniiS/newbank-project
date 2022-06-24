@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+</head>
+<body>
+<head th:replace="~{base :: header}"></head>
+<section class="container-fluid bg-white" id="login-admin">
+
+	<div class="row mt-5 py-5 justify-content-center">
+
+		<form class="mt-5 card p-3" th:action="@{/login}" method="post">
+			<div class="card-header bg-white">
+				<p class="card-title text-dark font-weight-bold">Acesse sua
+					conta</p>
+			</div>
+			<div class="form-group mt-2">
+				<label for="user">Usuário</label> <input type="text"
+					class="form-control" id="user">
+			</div>
+			<div class="form-group">
+				<label for="password">Senha</label> <input type="password"
+					class="form-control" id="senha">
+			</div>
+			<button type="submit" class="btn botao-cor-especial">Entrar</button>
+		</form>
+
+	</div>
+</section>
+
+
+<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

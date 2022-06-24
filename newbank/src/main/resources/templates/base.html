@@ -30,8 +30,8 @@
 				<li><a class="nav-link active" href="/">início <span
 						class="sr-only">(current)</span></a></li>
 				<li><a class="nav-link" href="/transacao">transações</a></li>
-				<li><a class="nav-link" href="/login">login</a></li>
-				<li><a class="nav-link" href="#">logout</a></li>
+				<li><a class="nav-link" sec:authorize="!isAuthenticated()" href="/login">login</a></li>
+				<li><a class="nav-link" sec:authorize="isAuthenticated()" href="/logout">logout</a></li>
 				<li><a class="nav-link" data-toggle="modal"
 					data-target="#modal-contato" href="#">contato</a></li>
 			</ul>

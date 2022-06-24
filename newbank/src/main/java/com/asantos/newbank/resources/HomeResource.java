@@ -25,4 +25,10 @@ public class HomeResource {
 	public String showClientHomePage(Model model) {
 		return "cliente";
 	}
+	
+	@GetMapping(value="login")
+	public String login() {
+		return "login";
+	}
+	
 }

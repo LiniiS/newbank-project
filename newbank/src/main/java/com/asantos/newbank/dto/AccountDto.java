@@ -1,6 +1,7 @@
 package com.asantos.newbank.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 import com.asantos.newbank.entities.Account;
 
@@ -14,7 +15,7 @@ public class AccountDto {
 	@NotBlank(message="Informe o número da conta.")
 	private String account;
 	
-	
+	@Positive(message="Saldo inválido.")
 	private double balance;
 	
 	@NotBlank(message="Informe o número do cartão da conta.")
